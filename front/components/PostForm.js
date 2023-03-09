@@ -9,6 +9,12 @@ import {
 } from "../reducers/post";
 import useInput from "../hooks/useInput";
 
+import styled from "styled-components";
+
+const ButtonWrapper = styled.div`
+  margin-top: 10px;
+`;
+
 const PostForm = () => {
   const { imagePaths, addPostDone } = useSelector((state) => state.post);
   const dispatch = useDispatch();
@@ -83,10 +89,12 @@ const PostForm = () => {
           ref={imageInput}
           onChange={onChangeImages}
         />
-        <Button onClick={onClickImageUpload}>이미지 업로드</Button>
-        <Button type="primary" style={{ float: "right" }} htmlType="submit">
-          짹짹
-        </Button>
+        <ButtonWrapper>
+          <Button onClick={onClickImageUpload}>이미지 업로드</Button>
+          <Button type="primary" style={{ float: "right" }} htmlType="submit">
+            글쓰기
+          </Button>
+        </ButtonWrapper>
       </div>
       <div>
         {imagePaths.map((v, i) => (

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Card, Avatar, Button } from "antd";
 
 import { logoutRequestAction } from "../reducers/user";
+import styled from "styled-components";
 
 const UserProfile = () => {
   const dispatch = useDispatch();
@@ -12,11 +13,15 @@ const UserProfile = () => {
     dispatch(logoutRequestAction());
   }, []);
 
+  const ButtonWrapper = styled.div`
+    margin-top: 10px;
+  `;
+
   return (
     <Card
       actions={[
         <div key="twit">
-          짹짹
+          좋아요
           <br />
           {me.Posts.length}
         </div>,
@@ -36,9 +41,11 @@ const UserProfile = () => {
         avatar={<Avatar>{me.nickname[0]}</Avatar>}
         title={me.nickname}
       />
-      <Button onClick={onLogOut} loading={logOutLoading}>
-        로그아웃
-      </Button>
+      <ButtonWrapper>
+        <Button onClick={onLogOut} loading={logOutLoading}>
+          로그아웃
+        </Button>
+      </ButtonWrapper>
     </Card>
   );
 };

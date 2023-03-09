@@ -9,9 +9,13 @@ import { loginRequestAction } from "../reducers/user";
 
 const ButtonWrapper = styled.div`
   margin-top: 10px;
+  & > Button {
+    margin-right: 10px;
+  }
 `;
 
 const FormWrapper = styled(Form)`
+  margin-left: 10px;
   padding: 10px;
 `;
 
